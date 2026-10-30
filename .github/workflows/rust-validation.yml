@@ -1,0 +1,50 @@
+name: Rust validation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out component
+        uses: actions/checkout@v4
+        with:
+          path: ${{ github.event.repository.name }}
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+      - name: Check out sibling path dependencies
+        working-directory: ${{ github.workspace }}/${{ github.event.repository.name }}
+        run: |
+          python3 - <<'PY' > "$RUNNER_TEMP/path-dependencies"
+          import tomllib
+          from pathlib import Path
+
+          manifest = tomllib.loads(Path("Cargo.toml").read_text())
+          dependencies = {}
+          for section in ("dependencies", "dev-dependencies", "build-dependencies"):
+              for name, value in manifest.get(section, {}).items():
+                  if isinstance(value, dict) and "path" in value:
+                      path = (Path.cwd() / value["path"]).resolve()
+                      repository = path.name
+                      if not repository.startswith("SigmaOS-"):
+                          raise SystemExit(f"refusing non-SigmaOS path dependency: {path}")
+                      dependencies[str(path)] = repository
+          for path, repository in sorted(dependencies.items()):
+              print(f"{path}\t{repository}")
+          PY
+          while IFS="$(printf '\t')" read -r path repository; do
+            [ -n "$path" ] || continue
+            if [ ! -d "$path/.git" ]; then
+              git clone --depth 1 "https://github.com/AaryanSinghChauhan09/${repository}.git" "$path"
+            fi
+          done < "$RUNNER_TEMP/path-dependencies"
+      - name: Run crate tests
+        working-directory: ${{ github.workspace }}/${{ github.event.repository.name }}
+        run: cargo test --all-targets --locked
