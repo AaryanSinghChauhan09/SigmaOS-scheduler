@@ -1,15 +1,17 @@
 [package]
-name = "sigmaos-scheduler"
+name = "scheduler"
 version = "0.1.0"
 edition = "2021"
-authors = ["SigmaOS Project"]
-description = "SigmaOS scheduler"
-license = "GPL-3.0-or-later"
+description = "SigmaOS SigmaOS-scheduler component - Development and system tools"
+license = "MIT"
 repository = "https://github.com/AaryanSinghChauhan09/SigmaOS-scheduler"
-readme = "README.md"
 
 [dependencies]
-sigmaos-kernel = { version = "0.1", path = "../SigmaOS-kernel" }
-
-[profile.release]
-opt-level = 3
+tokio = { version = "1.35", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+log = "0.4"
+env_logger = "0.11"
+anyhow = "1.0"
+thiserror = "1.0"
+clap = { version = "4.5", features = ["derive"] }
