@@ -1,17 +1,31 @@
 [package]
-name = "scheduler"
+name = "sigmaos_scheduler"
 version = "0.1.0"
 edition = "2021"
-description = "SigmaOS SigmaOS-scheduler component - Development and system tools"
-license = "MIT"
+authors = ["SigmaOS Team"]
+description = "CPU scheduling implementation for SigmaOS inspired by Linux kernel CFS and EEVDF"
+license = "MIT OR GPL-2.0"
 repository = "https://github.com/AaryanSinghChauhan09/SigmaOS-scheduler"
+readme = "README.md"
+keywords = ["scheduler", "cpu", "cfs", "eevdf", "realtime"]
+categories = ["os", "scheduler"]
 
 [dependencies]
-tokio = { version = "1.35", features = ["full"] }
-serde = { version = "1.0", features = ["derive"] }
-serde_json = "1.0"
-log = "0.4"
-env_logger = "0.11"
 anyhow = "1.0"
 thiserror = "1.0"
-clap = { version = "4.5", features = ["derive"] }
+serde = { version = "1.0", features = ["derive"] }
+bitvec = "1.0"
+
+[dev-dependencies]
+tempfile = "3.0"
+
+[profile.dev]
+opt-level = 0
+debug = false
+incremental = false
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
