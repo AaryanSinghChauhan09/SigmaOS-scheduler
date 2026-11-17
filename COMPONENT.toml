@@ -1,0 +1,16 @@
+[component]
+name = "SigmaOS-scheduler"
+tier = 2
+stability = "scaffold"
+language = "rust"
+description = "scheduler component"
+upstream = []
+
+[contract]
+provides = ["component"]
+depends_on = []
+
+[maturity]
+status = "Scaffold"
+test_evidence = "Compiles and passes AAA unit tests"
+next_milestone = "Hardware and runtime integration"
