@@ -3,7 +3,7 @@ name = "SigmaOS-scheduler"
 tier = 2
 stability = "scaffold"
 language = "rust"
-description = "scheduler component"
+description = "CPU scheduling implementation for SigmaOS inspired by Linux kernel CFS and EEVDF"
 upstream = []
 
 [contract]
