@@ -157,7 +157,7 @@ impl RunQueue {
     }
     
     /// Update load information
-    fn update_load(&mut self) {
+    pub(crate) fn update_load(&mut self) {
         self.load.runnable = self.nr_running;
         self.load.weight = self.calculate_weight();
         // Simple moving average

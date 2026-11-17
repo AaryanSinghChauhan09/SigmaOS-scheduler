@@ -2,7 +2,7 @@ use std::vec::Vec;
 // Processor Assignment, CPU Affinity & NUMA Topology Manager for SigmaOS
 // Inspired by Linux sched_setaffinity(2), FreeBSD cpuset(2) / cpuset_setaffinity, and Windows NUMA node affinity.
 
-use crate::klib::HashMap;
+use std::collections::HashMap;
 
 /// 64-bit CPU Core Affinity Bitmask (supports up to 64 logical processors per mask)
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]

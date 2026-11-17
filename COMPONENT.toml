@@ -1,7 +1,7 @@
 [component]
 name = "SigmaOS-scheduler"
 tier = 2
-stability = "scaffold"
+stability = "beta"
 language = "rust"
 description = "CPU scheduling implementation for SigmaOS inspired by Linux kernel CFS and EEVDF"
 upstream = []
@@ -11,6 +11,6 @@ provides = ["component"]
 depends_on = []
 
 [maturity]
-status = "Scaffold"
+status = "Implemented"
 test_evidence = "Compiles and passes AAA unit tests"
 next_milestone = "Hardware and runtime integration"
