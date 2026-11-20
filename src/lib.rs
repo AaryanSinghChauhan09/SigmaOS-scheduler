@@ -4,6 +4,7 @@
 
 #![allow(warnings, unused)]
 
+pub mod sigmataskscheduler;
 pub mod scheduler;
 pub mod task;
 pub mod runqueue;
