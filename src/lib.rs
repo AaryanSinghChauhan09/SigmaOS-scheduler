@@ -29,3 +29,6 @@ pub use load_balance::*;
 
 /// Module extracted from the SigmaOS-system monolith.
 pub mod scheduler_manager;
+
+/// Module extracted from the SigmaOS-system monolith.
+pub mod task_scheduler;
