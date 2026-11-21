@@ -26,3 +26,6 @@ pub use realtime::*;
 pub use deadline::*;
 pub use affinity::*;
 pub use load_balance::*;
+
+/// Module extracted from the SigmaOS-system monolith.
+pub mod scheduler_manager;

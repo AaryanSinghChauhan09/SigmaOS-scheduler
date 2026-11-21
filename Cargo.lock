@@ -78,6 +78,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "32a66949e030da00e8c7d4434b251670a91556f4144941d37452769c25d58a53"
 
 [[package]]
+name = "log"
+version = "0.4.35"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5d15f86d12da44cd8d4ec3c73984537eb7f4cadcb9776a575a0a8a05ca11005c"
+
+[[package]]
 name = "once_cell"
 version = "1.21.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -157,12 +163,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "sigmaos-component-core"
+version = "0.1.0"
+source = "git+https://github.com/AaryanSinghChauhan09/SigmaOS-component-core#2bc35fcc41bb8003d95cbcc27b6eedcfaa12f22b"
+
+[[package]]
 name = "sigmaos_scheduler"
 version = "0.1.0"
 dependencies = [
  "anyhow",
  "bitvec",
+ "log",
  "serde",
+ "sigmaos-component-core",
  "tempfile",
  "thiserror",
 ]
