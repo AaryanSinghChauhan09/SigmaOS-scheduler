@@ -1,18 +1,18 @@
-# SigmaOS-SigmaOS-scheduler Component Wiki
+# SigmaOS-scheduler Component Wiki
 
 ## Overview
-SigmaOS-SigmaOS-scheduler provides CPU scheduling implementation for SigmaOS inspired by Linux kernel CFS and EEVDF for the SigmaOS operating system. It demonstrates the subsystem and integration within the SigmaOS ecosystem, following the principles of clear abstraction and deterministic initialization.
+SigmaOS-scheduler provides component for the SigmaOS operating system. It demonstrates the subsystem and integration within the SigmaOS ecosystem, following the principles of clear abstraction and deterministic initialization.
 
 ## Principles
-- Single Responsibility
-- SigmaOS-scheduler Abstraction
-- Fail-Fast on SigmaOS-scheduler Initialization Errors
-- Deterministic SigmaOS-scheduler Setup
-- Clear Abstraction Over SigmaOS-scheduler APIs
-- Composition over Inheritance for SigmaOS-scheduler extensions
+- **Single Responsibility**: Each component has a single well-defined purpose
+- **SigmaOS-scheduler Abstraction**: Clear abstraction over the component's APIs and functionality
+- **Fail-Fast on SigmaOS-scheduler Initialization Errors**: Fail-fast principle for initialization errors
+- **Deterministic SigmaOS-scheduler Setup**: Deterministic initialization and configuration
+- **Clear Abstraction Over SigmaOS-scheduler APIs**: Well-defined, clear APIs
+- **Composition over Inheritance for SigmaOS-scheduler extensions**: Use composition patterns for extensions
 
 ## Architecture
-SigmaOS-SigmaOS-scheduler follows a SigmaOS-scheduler pattern:
+SigmaOS-scheduler follows a SigmaOS-scheduler pattern:
 - **SigmaOS-scheduler Core**: Provides SigmaOS-scheduler support, SigmaOS-scheduler management, and SigmaOS-scheduler tracking
 - **Management**: Supports SigmaOS-scheduler management, SigmaOS-scheduler configuration, and SigmaOS-scheduler lifecycle
 - **Tracking**: Supports SigmaOS-scheduler status, SigmaOS-scheduler tracking, and SigmaOS-scheduler lifecycle
@@ -20,10 +20,10 @@ SigmaOS-SigmaOS-scheduler follows a SigmaOS-scheduler pattern:
 
 ## API
 The component provides the following public APIs:
--  - Manage a SigmaOS-scheduler by given configuration
--  - Register a SigmaOS-scheduler by given name
--  - Get SigmaOS-scheduler status and SigmaOS-scheduler availability
--  - Track SigmaOS-scheduler management and SigmaOS-scheduler tracking
+- Manage a SigmaOS-scheduler by given configuration
+- Register a SigmaOS-scheduler by given name
+- Get SigmaOS-scheduler status and SigmaOS-scheduler availability
+- Track SigmaOS-scheduler management and SigmaOS-scheduler tracking
 - Error types for SigmaOS-scheduler failure scenarios or unsupported SigmaOS-scheduler types
 
 ## Test Structure (Arrange-Act-ASSERT)
@@ -32,11 +32,8 @@ All tests follow the AAA pattern:
 2. **Act**: Execute the code under test (SigmaOS-scheduler init, SigmaOS-scheduler management)
 3. **Assert**: Verify the expected SigmaOS-scheduler results
 
-Example:
-
-
 ## Development
-- Follows Rust best practices with 
+- Follows best practices with clear abstraction boundaries
 - SigmaOS-scheduler initialization is best-effort; gracefully degrades on unsupported configurations
 - Comprehensive error types for all SigmaOS-scheduler failure scenarios
 - Unit tests provided for SigmaOS-scheduler management and configuration
